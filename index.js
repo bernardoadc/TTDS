@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 import program from 'commander'
 import lib from './lib/index.js'
+const api = await lib() // eslint-disable-line
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'production'
 if (process.env.DEBUG) global.debug = process.env.DEBUG
@@ -9,7 +10,7 @@ else global.debug = false
 
 program
   .version('0.1.0', '-v, --version')
-  .description('[97mTTS Engine - Text To-Do System[0m')
+  .description('[97mTTS Engine - Text To-Do System[0m')
 
 program
   .command('cmd <param> [optional]')

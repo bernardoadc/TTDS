@@ -1,0 +1,14 @@
+{
+  "name": "ttds-test",
+  "version": "1.0.0",
+  "description": "Projetos e Tarefas",
+  "scripts": {
+    "start": ""
+  },
+  "keywords": [],
+  "author": "Zark Khullah",
+  "license": "ISC",
+  "dependencies": {
+    "ttds": ">= 1"
+  }
+}

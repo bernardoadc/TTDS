@@ -1,0 +1,28 @@
+{
+  "f3209290": { // hash do nome
+    "file": "TTDS", // implicito pelo nome do arquivo
+    "id": "f3209290", // implicito
+    "parent": "be0287bc", // monta hierarquia
+    //"children"?
+    // main properties
+    "nome": "exemplo de objetivo",
+    "tipo": "objetivo",
+    "custo": 8, // apenas tarefas, em kp
+    "valor": 13, // apenas objetivos, em kp
+    "kanbanStatus": "sprint backlog",
+    // history
+    "dataInicial": "22/03/2021",
+    "dataFinal": null,
+    "historico": [
+      {"event": "createdAt", "value": "22/03/2021", "ts": "22/03/2021 02:43"},
+      {"event": "kanbanStatus", "value": "doing", "ts": "22/03/2021 02:44"},
+      {"event": "timer", "value": "1h 36m 42s", "ts": "22/03/2021 02:52"}
+    ],
+    // stats
+    "tempo": "1h 36m 42s",
+    "custoTotal": "1651", // apenas objetivos, em kp
+    "valorTotal": "1562", // apenas tarefas, em kp
+    "B/C": "0.94609",
+    "BC%": "50%" // relativo aos irmaos
+  }
+}
