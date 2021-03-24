@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 import program from 'commander'
 import lib from './lib/index.js'
+const api = await lib() // eslint-disable-line
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'production'
 if (process.env.DEBUG) global.debug = process.env.DEBUG
