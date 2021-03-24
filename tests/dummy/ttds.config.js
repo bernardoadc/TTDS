@@ -1,34 +1,57 @@
 export default {
   parser: { // codificação personalizavel
-    indentSize: 2,
-    insertSpaces: true,
-    'comments.inline': '//',
-    'comments.multilines.open': '/*',
-    'comments.multilines.close': '*/',
-    id: '[]',
-    'tasks.unordered': '*',
-    'tasks.ordered': ')',
-    customtypes: {
-      objetivos: '->'
+    identation: {
+      indentSize: 2,
+      insertSpaces: true
+    },
+    comments: {
+      inline: '//',
+      multilines: {
+        open: '/*',
+        close: '*/'
+      }
+    },
+    customTypes: {
+      'task.unordered': '*',
+      'task.ordered': ')',
+      objetivos: '->',
+      status: '---',
+      inlineStatus: '@'
+    },
+    markers: {
+      id: '[]',
+      pkp: '{}',
+      tags: '#'
     }
-  },
-  styler: {}, // GUI (padrao, mas alguem pode personalizar dps tbm)
+  }
+/*  styler: {}, // GUI (padrao, mas alguem pode personalizar dps tbm)
   history: {}, // timeline e start + finish
   pkp: { // atribuir numero em pokerpoints
-    marker: '{}',
+    markers: {
+      pkp: '{}'
+    },
     scale: [1, 2, 3, 5, 8, 13, 23, 37, 61, 99],
     unit: 'kp'
   },
-  "B/C": { // usar kp para calcular relevancia e tc
-    values: '{}',
-    costs: '{}'
+  'B/C': { // usar kp para calcular relevancia e tc
+    markers: {
+      values: '{}',
+      costs: '{}'
+    }
   },
   timer: { // registrar e somar tempos gastos
     format: 'h"h" m"m" s"s"'
   },
   kanban: { // status de kanban
-    status: '##',
-    inlineStatus: '@'
+    customtypes: {
+      kanbanStatus: '---',
+      inlineKanbanStatus: '@'
+    }
   },
-  tags: '#' // adicionar tags aos itens para posterior visualização agrupada
+  tags: { // adicionar tags aos itens para posterior visualização agrupada
+    markers: {
+      tags: '#'
+     }
+  }
+*/
 }

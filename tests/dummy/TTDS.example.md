@@ -1,6 +1,8 @@
 # Titulo [id](link do pai; pode ser de outro arquivo!)
 
-## Kanban Status
+Kanban Status
+-------------
+
 -> Objetivo
   -> Obj hierarquicos {valor em poker points}
     /* permitir comentários */
