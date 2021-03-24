@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   parser: { // codificação personalizavel
     indentSize: 2,
     insertSpaces: true,

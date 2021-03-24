@@ -9,7 +9,7 @@ else global.debug = false
 
 program
   .version('0.1.0', '-v, --version')
-  .description('[97mTTS Engine - Text To-Do System[0m')
+  .description('[97mTTS Engine - Text To-Do System[0m')
 
 program
   .command('cmd <param> [optional]')
