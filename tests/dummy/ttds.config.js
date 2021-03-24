@@ -11,15 +11,15 @@ export default {
     customtypes: {
       objetivos: '->'
     }
-  },
-  styler: {}, // GUI (padrao, mas alguem pode personalizar dps tbm)
+  }
+/*  styler: {}, // GUI (padrao, mas alguem pode personalizar dps tbm)
   history: {}, // timeline e start + finish
   pkp: { // atribuir numero em pokerpoints
     marker: '{}',
     scale: [1, 2, 3, 5, 8, 13, 23, 37, 61, 99],
     unit: 'kp'
   },
-  "B/C": { // usar kp para calcular relevancia e tc
+  'B/C': { // usar kp para calcular relevancia e tc
     values: '{}',
     costs: '{}'
   },
@@ -31,4 +31,5 @@ export default {
     inlineStatus: '@'
   },
   tags: '#' // adicionar tags aos itens para posterior visualização agrupada
+*/
 }
