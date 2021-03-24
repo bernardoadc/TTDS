@@ -1,0 +1,5 @@
+{
+  "name": "ttds-parser",
+  "version": "1.0.0",
+  "main": "parser.plugin.js"
+}
