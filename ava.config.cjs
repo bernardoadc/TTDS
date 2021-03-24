@@ -7,7 +7,6 @@ module.exports = {
   files: [
     '!tests/dummy'
   ],
-  match: ['*.test.js'],
   environmentVariables: {
     INIT_CWD: path.join(__dirname, './tests/dummy')
   }
