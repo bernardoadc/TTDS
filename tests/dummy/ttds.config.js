@@ -1,7 +1,9 @@
 export default {
   parser: { // codificação personalizavel
-    indentSize: 2,
-    insertSpaces: true,
+    identation: {
+      indentSize: 2,
+      insertSpaces: true
+    },
     comments: {
       inline: '//',
       multilines: {
@@ -9,26 +11,30 @@ export default {
         close: '*/'
       }
     },
-    id: '[]',
-    tasks: {
-      unordered: '*',
-      ordered: ')'
-    },
     customTypes: {
-      objetivos: '->'
+      'task.unordered': '*',
+      'task.ordered': ')',
+      objetivos: '->',
+      status: '---',
+      inlineStatus: '@'
+    },
+    markers: {
+      id: '[]',
+      pkp: '{}',
+      tag: '#'
     }
   }
 /*  styler: {}, // GUI (padrao, mas alguem pode personalizar dps tbm)
   history: {}, // timeline e start + finish
   pkp: { // atribuir numero em pokerpoints
-    customtypes: {
-      marker: '{}'
+    markers: {
+      pkp: '{}'
     },
     scale: [1, 2, 3, 5, 8, 13, 23, 37, 61, 99],
     unit: 'kp'
   },
   'B/C': { // usar kp para calcular relevancia e tc
-    customtypes: {
+    markers: {
       values: '{}',
       costs: '{}'
     }
@@ -38,12 +44,12 @@ export default {
   },
   kanban: { // status de kanban
     customtypes: {
-      status: '---',
-      inlineStatus: '@'
+      kanbanStatus: '---',
+      inlineKanbanStatus: '@'
     }
   },
   tags: { // adicionar tags aos itens para posterior visualização agrupada
-    customtypes: {
+    markers: {
       tag: '#'
      }
   }

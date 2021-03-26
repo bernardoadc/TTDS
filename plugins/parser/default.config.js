@@ -1,13 +1,21 @@
 export default {
-  indentSize: 2,
-  insertSpaces: true,
-  'comments.inline': '//',
-  'comments.multilines.open': '/*',
-  'comments.multilines.close': '*/',
-  id: '[]',
-  'tasks.unordered': '*',
-  'tasks.ordered': ')',
+  identation: {
+    indentSize: 2, // 0 poderia ser = tab
+    insertSpaces: true
+  },
+  comments: {
+    inline: '//',
+    multilines: {
+      open: '/*',
+      close: '*/'
+    }
+  },
   customTypes: {
+    'task.unordered': '*',
+    'task.ordered': ')',
     objetivos: '->'
+  },
+  markers: {
+    id: '[]'
   }
 }
