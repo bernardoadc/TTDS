@@ -58,14 +58,14 @@ function clean (data) {
   data = data.replace(/^\s+?$(\r?\n)*/gm, '\n')
 
   // treat underscores
-  data = data.replace(/^([ \t]*)(.+)\r?\n[ \t]*([-=¨"']){3,}$/, '$1$3$3$3 $2')
+  data = data.replace(/([ \t]*)(.+)\r?\n[ \t]*([-=¨"']){3,}/, '$1$3$3$3 $2')
 
   return data
 }
 
-function doParse (data, file) {
+function doParse (data) { //, file
   data = clean(data)
-  const identationRegexp = new RegExp(options.insertSpaces ? ` {${options.indentSize}}` : '\t')
+  const identationRegexp = new RegExp(options.identation.insertSpaces ? ` {${options.identation.indentSize}}` : '\t')
 
   const levels = []
   const dict = {} // hashes
@@ -82,7 +82,7 @@ function doParse (data, file) {
 
     const obj = { // hash do nome
       // references
-      file: file,
+      // file: file,
       id: hash(line.name),
       parent: null, // dict
       children: [], // monta hierarquia
@@ -111,8 +111,7 @@ function doParse (data, file) {
 }
 
 function getType (asText) {
-  if (asText == options.tasks.unordered) return 'task.unordered'
-  if (asText.slice(-1) == options.tasks.ordered) return 'task.ordered'
+  if (asText.slice(-1) == options.customTypes['task.ordered']) return 'task.ordered'
   for (const key in options.customTypes) {
     if (asText == options.customTypes[key]) return key
   }
