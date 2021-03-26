@@ -14,7 +14,7 @@ export default {
       unordered: '*',
       ordered: ')'
     },
-    customtypes: {
+    customTypes: {
       objetivos: '->'
     }
   }

@@ -7,7 +7,7 @@ export default {
   id: '[]',
   'tasks.unordered': '*',
   'tasks.ordered': ')',
-  customtypes: {
+  customTypes: {
     objetivos: '->'
   }
 }
