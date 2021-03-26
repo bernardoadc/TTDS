@@ -6,6 +6,7 @@ import { crc16ccitt } from 'crc'
 import defaultOptions from './default.config'
 
 const plugin = {
+  name: 'parser',
   initialize,
   // hash
   parse
@@ -17,8 +18,14 @@ const plugin = {
 }
 let options
 
-function initialize (userOptions) {
-  options = {...defaultOptions, ...userOptions}
+function initialize (userOptions, allOptions) {
+  //delete allOptions[plugin.name]
+  const ct = { customTypes: {} }
+  for (const plugin in allOptions) {
+    if (allOptions[plugin].customTypes) ct.customTypes = {...ct.customTypes, ...allOptions[plugin].customTypes}
+  }
+
+  options = {...defaultOptions, ...userOptions, ...ct}
 }
 
 function hash (what) {
@@ -103,27 +110,16 @@ function doParse (data, file) {
   }
 }
 
-// get tasks
-// get tasks
-// for types in customTypes
-
-/*
-parser: {
-  id: '[]',
-  'tasks.unordered': '*',
-  'tasks.ordered': ')',
-  customtypes: {
-    objetivos: '->'
+function getType (asText) {
+  if (asText == options.tasks.unordered) return 'task.unordered'
+  if (asText.slice(-1) == options.tasks.ordered) return 'task.ordered'
+  for (const key in options.customTypes) {
+    if (asText == options.customTypes[key]) return key
   }
-}
-*/
-
-function getType () {
-
 }
 
 function parseMarkers () {
-
+  // id: '[]',
 }
 
 
