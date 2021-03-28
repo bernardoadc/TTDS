@@ -21,7 +21,7 @@ export default {
     markers: {
       id: '[]',
       pkp: '{}',
-      tag: '#'
+      tags: '#'
     }
   }
 /*  styler: {}, // GUI (padrao, mas alguem pode personalizar dps tbm)
@@ -50,7 +50,7 @@ export default {
   },
   tags: { // adicionar tags aos itens para posterior visualização agrupada
     markers: {
-      tag: '#'
+      tags: '#'
      }
   }
 */
