@@ -126,7 +126,7 @@ function parseMarkers (markers) {
         if (marker.length == 1) {
           if (!r[key]) r[key] = []
           r[key].push(m.slice(1))
-        } else if (marker.length == 2) r[key] = m.slice(1, -1)
+        } else if (marker.length == 2 && m.slice(-1) == marker[1]) r[key] = m.slice(1, -1)
       }
     }
 
