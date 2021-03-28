@@ -7,14 +7,18 @@ const plugin = {
   update
   // compare
 }
+const plugins = {}
 let options
 
-function initialize () {}
+function initialize (engine, userOptions, allOptions) { // eslint-disable-line no-unused-vars
+  plugins.parser = engine.plugins.parser
+  options = allOptions
+}
 
 async function update (file) {
   const fileDB = '.' + file.replace('.md', '.json5')
   const db = await import(path.join(process.env.INIT_CWD, fileDB))
-  const parsed =
+  const parsed = plugins.parser.parse(file)
 
   compare(db, parsed)
 
