@@ -1,0 +1,6 @@
+{
+  "name": "ttds-shadowdb",
+  "description": "local invisible parallel DB",
+  "version": "1.0.0",
+  "main": "shadowDB.plugin.js"
+}

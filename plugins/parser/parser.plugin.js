@@ -12,9 +12,8 @@ const plugin = {
   parse
   // clean
   // doParse
-  // getType,
-  // parseMarkers,
-  // updateObjDic
+  // getType
+  // parseMarkers
 }
 let options
 
