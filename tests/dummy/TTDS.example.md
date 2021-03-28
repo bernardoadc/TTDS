@@ -1,4 +1,4 @@
-# Titulo [id](link do pai; pode ser de outro arquivo!)
+# Titulo [id]
 
 Kanban Status
 -------------
