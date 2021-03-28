@@ -13,12 +13,12 @@ program
   .description('[97mTTS Engine - Text To-Do System[0m')
 
 program
-  .command('cmd <param> [optional]')
-  .alias('c')
-  .description('')
-  .action(function (param, optional) {
+  .command('parse') //  <file>
+  .alias('p')
+  .description('parse text to-do')
+  .action(function (file) { // eslint-disable-line no-unused-vars
     if (process.env.NODE_ENV == 'debug') console.info(`CMD => ${[...arguments].join(', ')}`)
-    lib.cmd(...arguments)
+    api.parser.parse(...arguments)
   }).on('--help', function () {
     console.log('')
     console.log('Examples:')
