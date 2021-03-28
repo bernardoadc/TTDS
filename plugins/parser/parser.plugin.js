@@ -55,6 +55,7 @@ function clean (data) {
   data = data.replace(commentsMultiline, '')
 
   // remove extra lines
+  //[ \t]*
   data = data.replace(/^\s+?$(\r?\n)*/gm, '\n')
 
   // treat underscores
@@ -117,8 +118,20 @@ function getType (asText) {
   }
 }
 
-function parseMarkers () {
-  // id: '[]',
+function parseMarkers (markers) {
+  if (markers) return markers.split(' ').reduce(function (r, m) {
+    for (const key in options.markers) {
+      const marker = options.markers[key]
+      if (m[0] == marker[0]) {
+        if (marker.length == 1) {
+          if (!r[key]) r[key] = []
+          r[key].push(m.slice(1))
+        } else if (marker.length == 2) r[key] = m.slice(1, -1)
+      }
+    }
+
+    return r
+  }, {})
 }
 
 
