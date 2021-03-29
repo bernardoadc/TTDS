@@ -19,11 +19,13 @@ let options
 
 function initialize (engine, userOptions) {
   const ct = { customTypes: {} }
+  const m = { markers: {} }
   for (const plugin in engine.config) {
     if (engine.config[plugin].customTypes) ct.customTypes = {...ct.customTypes, ...engine.config[plugin].customTypes}
+    if (engine.config[plugin].markers) m.markers = {...m.markers, ...engine.config[plugin].markers}
   }
 
-  options = {...defaultOptions, ...userOptions, ...ct}
+  options = {...defaultOptions, ...userOptions, ...ct, ...m}
 }
 
 function hash (what) {
@@ -79,9 +81,12 @@ function doParse (data) { //, file
     if (!match) match = line.match(/^([ \t]*)(.{1,3}) (.+)$/)
     line = match.reduce((r, v, i) => (r[['original', 'identation', 'type', 'name', 'markers'][i]] = v, r), {}) // eslint-disable-line no-sequences, no-return-assign
 
+    const ident = line.identation.split(identationRegexp).length - 1 // replace(/([ \t]*).+/, '$1')
     const obj = { // hash do nome
       // references
       // file: file,
+      identation: ident, // useful to re-write text file
+      hash: hash(line.name), // useful to see if changed
       id: hash(line.name),
       parent: null, // dict
       children: [], // monta hierarquia
@@ -93,7 +98,6 @@ function doParse (data) { //, file
 
     dict[obj.id] = obj
 
-    const ident = line.identation.split(identationRegexp).length - 1 // replace(/([ \t]*).+/, '$1')
     levels[ident] = obj
     if (ident > 0) {
       obj.parent = levels[ident - 1]
