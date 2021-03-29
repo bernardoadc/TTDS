@@ -10,9 +10,10 @@ const plugin = {
 const plugins = {}
 let options
 
-function initialize (engine, userOptions, allOptions) { // eslint-disable-line no-unused-vars
+
+function initialize (engine, userOptions) { // eslint-disable-line no-unused-vars
   plugins.parser = engine.plugins.parser
-  options = allOptions
+  options = engine.config
 }
 
 async function update (file) {

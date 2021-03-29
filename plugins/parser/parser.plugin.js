@@ -17,11 +17,10 @@ const plugin = {
 }
 let options
 
-function initialize (engine, userOptions, allOptions) { // eslint-disable-line no-unused-vars
-  //delete allOptions[plugin.name]
+function initialize (engine, userOptions) {
   const ct = { customTypes: {} }
-  for (const plugin in allOptions) {
-    if (allOptions[plugin].customTypes) ct.customTypes = {...ct.customTypes, ...allOptions[plugin].customTypes}
+  for (const plugin in engine.config) {
+    if (engine.config[plugin].customTypes) ct.customTypes = {...ct.customTypes, ...engine.config[plugin].customTypes}
   }
 
   options = {...defaultOptions, ...userOptions, ...ct}
