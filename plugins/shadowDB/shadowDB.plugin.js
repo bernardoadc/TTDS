@@ -54,11 +54,6 @@ async function update (file) {
 }
 
 function compare (stored, parsed, modDate) {
-  // const ADD = 2
-  // const CHANGED = 1
-  // const SAME = 0
-  // const DEL = -1
-
   const newDB = {}
   const added = {}
   const deleted = {}
@@ -67,13 +62,13 @@ function compare (stored, parsed, modDate) {
   const IDs = new Set([...Object.keys(stored), ...Object.keys(parsed)])
   for (const id of IDs) {
     if (!stored[id]) {
-      // parsed[id].result = ADD
+      // ADD
       parsed[id][CREATED] = modDate
       newDB[id] = parsed[id]
       added[id] = parsed[id]
     }
     if (!parsed[id]) {
-      // stored[id].result = DEL
+      // DEL
       stored[id][FINISHED] = modDate
       newDB[id] = stored[id]
       deleted[id] = stored[id]
@@ -83,10 +78,10 @@ function compare (stored, parsed, modDate) {
       // if (parsed.hash !== parsed.id) // main text changed
       try {
         assert.deepStrictEqual(stored[id], parsed[id])
-        // stored[id].result = parsed[id].result = SAME
+        // SAME
         newDB[id] = stored[id]
       } catch (e) {
-        // stored[id].result = parsed[id].result = CHANGED
+        // CHANGED
         newDB[id] = parsed[id]
         changed[id] = e
       }
