@@ -1,9 +1,11 @@
-import fs from 'fs'
-import path from 'path'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 import { crc16ccitt } from 'crc'
-
-
+import cli from './parser.cli'
 import defaultOptions from './default.config'
+const fs = { readFileSync }
+const path = { join }
+
 
 const plugin = {
   name: 'parser',
@@ -17,7 +19,7 @@ const plugin = {
 }
 let options
 
-function initialize (engine, userOptions) {
+function initialize (engine, userOptions, CLI) {
   const ct = { customTypes: {} }
   const m = { markers: {} }
   for (const plugin in engine.config) {
@@ -26,6 +28,7 @@ function initialize (engine, userOptions) {
   }
 
   options = {...defaultOptions, ...userOptions, ...ct, ...m}
+  cli(plugin, CLI)
 }
 
 function hash (what) {

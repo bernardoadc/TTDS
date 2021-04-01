@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import program from 'commander'
+import pacote from './package.json'
 import lib from './lib/index.js'
-const api = await lib() // eslint-disable-line
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'production'
 if (process.env.DEBUG) global.debug = process.env.DEBUG
@@ -9,33 +9,10 @@ else global.debug = false
 
 
 program
-  .version('0.1.0', '-v, --version')
+  .version(pacote.version, '-v, --version')
   .description('[97mTTS Engine - Text To-Do System[0m')
 
-program
-  .command('parse') //  <file>
-  .alias('p')
-  .description('parse text to-do')
-  .action(function (file) { // eslint-disable-line no-unused-vars
-    if (process.env.NODE_ENV == 'debug') console.info(`CMD => ${[...arguments].join(', ')}`)
-  }).on('--help', function () {
-    console.log('')
-    console.log('Examples:')
-    console.log('')
-  })
-
-  program
-  .command('update') //  <file>
-  .alias('u')
-  .description('update internal DB')
-  .action(function (file) { // eslint-disable-line no-unused-vars
-    if (process.env.NODE_ENV == 'debug') console.info(`CMD => ${[...arguments].join(', ')}`)
-    api.parser.parse(...arguments)
-  }).on('--help', function () {
-    console.log('')
-    console.log('Examples:')
-    console.log('')
-  })
+await lib(program) // eslint-disable-line
 
 program
   .on('command:*', function () {

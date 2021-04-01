@@ -1,6 +1,7 @@
 import { basename, join } from 'path'
 import { existsSync, readFileSync, statSync, writeFileSync } from 'fs'
 import { deepStrictEqual } from 'assert'
+import cli from './shadowDB.cli'
 const path = { basename, join }
 const fs = { existsSync, readFileSync, statSync, writeFileSync }
 const assert = { deepStrictEqual }
@@ -22,7 +23,7 @@ const FINISHED = 'finished'
 let options
 
 
-function initialize (engine, userOptions) { // eslint-disable-line no-unused-vars
+function initialize (engine, userOptions, CLI) { // eslint-disable-line no-unused-vars
   const ct = { customTypes: {} }
   const m = { markers: {} }
   for (const plugin in engine.config) {
@@ -32,6 +33,7 @@ function initialize (engine, userOptions) { // eslint-disable-line no-unused-var
 
   options = {...ct, ...m, identation: {...engine.config.parser.identation}}
   plugins.parser = engine.plugins.parser
+  cli(plugin, CLI)
 }
 
 async function update (file) {
