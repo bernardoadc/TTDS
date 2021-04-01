@@ -1,0 +1,94 @@
+{
+  "id": {
+    "identation": 0,
+    "hash": "vzr",
+    "id": "id",
+    "parent": null,
+    "children": [],
+    "name": "Titulo"
+  },
+  "1d45": {
+    "identation": 0,
+    "hash": "1d45",
+    "id": "1d45",
+    "parent": null,
+    "children": [],
+    "name": "Kanban Status",
+    "type": "status"
+  },
+  "ux8": {
+    "identation": 0,
+    "hash": "ux8",
+    "id": "ux8",
+    "parent": null,
+    "children": [
+      "4i4"
+    ],
+    "name": "Objetivo",
+    "type": "objetivos"
+  },
+  "4i4": {
+    "identation": 1,
+    "hash": "4i4",
+    "id": "4i4",
+    "parent": "ux8",
+    "children": [
+      "1b67",
+      "1dt9"
+    ],
+    "name": "Obj hierarquicos",
+    "type": "objetivos"
+  },
+  "1b67": {
+    "identation": 2,
+    "hash": "1b67",
+    "id": "1b67",
+    "parent": "4i4",
+    "children": [
+      "faf",
+      "g4r",
+      "gaf"
+    ],
+    "name": "tarefa sem ordem",
+    "type": "task.unordered"
+  },
+  "faf": {
+    "identation": 3,
+    "hash": "faf",
+    "id": "faf",
+    "parent": "1b67",
+    "children": [],
+    "name": "tarefas",
+    "type": "task.ordered"
+  },
+  "g4r": {
+    "identation": 3,
+    "hash": "g4r",
+    "id": "g4r",
+    "parent": "1b67",
+    "children": [],
+    "name": "ordenadas #tag",
+    "type": "task.ordered",
+    "tags": [
+      "outraTag"
+    ]
+  },
+  "gaf": {
+    "identation": 3,
+    "hash": "gaf",
+    "id": "gaf",
+    "parent": "1b67",
+    "children": [],
+    "name": "hierarquicas",
+    "type": "task.ordered"
+  },
+  "1dt9": {
+    "identation": 2,
+    "hash": "1dt9",
+    "id": "1dt9",
+    "parent": "4i4",
+    "children": [],
+    "name": "tarefa",
+    "type": "task.unordered"
+  }
+}

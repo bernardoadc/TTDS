@@ -18,6 +18,18 @@ program
   .description('parse text to-do')
   .action(function (file) { // eslint-disable-line no-unused-vars
     if (process.env.NODE_ENV == 'debug') console.info(`CMD => ${[...arguments].join(', ')}`)
+  }).on('--help', function () {
+    console.log('')
+    console.log('Examples:')
+    console.log('')
+  })
+
+  program
+  .command('update') //  <file>
+  .alias('u')
+  .description('update internal DB')
+  .action(function (file) { // eslint-disable-line no-unused-vars
+    if (process.env.NODE_ENV == 'debug') console.info(`CMD => ${[...arguments].join(', ')}`)
     api.parser.parse(...arguments)
   }).on('--help', function () {
     console.log('')
